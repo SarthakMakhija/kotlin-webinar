@@ -1,7 +1,6 @@
 package org.meetkt.catalogue.domain.model;
 
 import org.junit.jupiter.api.Test;
-import org.meetkt.cart.domain.model.Item;
 
 import java.util.Collections;
 import java.util.Map;
@@ -12,26 +11,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CatalogueUnitTest {
 
     @Test
-    void shouldNoReturnAnItemGivenCatalogueIsEmpty() {
+    void shouldNoReturnAnProductGivenCatalogueIsEmpty() {
         Catalogue catalogue = new Catalogue(Collections.emptyMap());
-        Optional<Item> item = catalogue.itemFor("any-barcode");
+        Optional<Product> product = catalogue.productFor("any-barcode");
 
-        assertThat(item.isEmpty()).isTrue();
+        assertThat(product.isEmpty()).isTrue();
     }
 
     @Test
-    void shouldNoReturnAnItemGivenItemDoesNotExistForTheBarcode() {
-        Catalogue catalogue = new Catalogue(Map.of("barcode-001", new Item("001")));
-        Optional<Item> item = catalogue.itemFor("non-existent-item-for-barcode");
+    void shouldNoReturnAnProductGivenProductDoesNotExistForTheBarcode() {
+        Catalogue catalogue = new Catalogue(Map.of("barcode-001", new Product("001")));
+        Optional<Product> product = catalogue.productFor("non-existent-product-for-barcode");
 
-        assertThat(item.isEmpty()).isTrue();
+        assertThat(product.isEmpty()).isTrue();
     }
 
     @Test
-    void shouldReturnAnItemWithProductIdGivenABarcode() {
-        Catalogue catalogue = new Catalogue(Map.of("barcode-001", new Item("001")));
-        Optional<Item> item = catalogue.itemFor("barcode-001");
+    void shouldReturnAnProductWithProductIdGivenABarcode() {
+        Catalogue catalogue = new Catalogue(Map.of("barcode-001", new Product("001")));
+        Optional<Product> product = catalogue.productFor("barcode-001");
 
-        assertThat(item.get().productId()).isEqualTo("001");
+        assertThat(product.get().id()).isEqualTo("001");
     }
 }

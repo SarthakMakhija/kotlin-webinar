@@ -1,7 +1,7 @@
 package org.meetkt.catalogue;
 
-import org.meetkt.cart.domain.model.Item;
 import org.meetkt.catalogue.domain.model.Catalogue;
+import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.exception.NoItemFoundForBarcodeException;
 
 import java.util.Optional;
@@ -14,8 +14,8 @@ public class BarcodeScanner {
         this.catalogue = catalogue;
     }
 
-    public Item scan(String barcode) {
-        Optional<Item> item = catalogue.itemFor(barcode);
-        return item.orElseThrow(() -> new NoItemFoundForBarcodeException(barcode));
+    public Product scan(String barcode) {
+        Optional<Product> product = catalogue.productFor(barcode);
+        return product.orElseThrow(() -> new NoItemFoundForBarcodeException(barcode));
     }
 }

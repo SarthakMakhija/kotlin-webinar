@@ -1,19 +1,17 @@
 package org.meetkt.catalogue.domain.model;
 
-import org.meetkt.cart.domain.model.Item;
-
 import java.util.Map;
 import java.util.Optional;
 
 public class Catalogue {
 
-    private final Map<String, Item> itemByBarcode;
+    private final Map<String, Product> productByBarcode;
 
-    public Catalogue(Map<String, Item> itemByBarcode) {
-        this.itemByBarcode = Map.copyOf(itemByBarcode);
+    public Catalogue(Map<String, Product> productByBarcode) {
+        this.productByBarcode = Map.copyOf(productByBarcode);
     }
 
-    public Optional<Item> itemFor(String barcode) {
-        return Optional.ofNullable(itemByBarcode.get(barcode));
+    public Optional<Product> productFor(String barcode) {
+        return Optional.ofNullable(productByBarcode.get(barcode));
     }
 }
