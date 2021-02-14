@@ -17,7 +17,7 @@ public class Catalogue {
                 Objects.requireNonNull(products).stream().collect(toMap(Product::barcode, Function.identity()));
     }
 
-    public Optional<Product> productFor(String barcode) {
+    public Optional<Product> productWith(String barcode) {
         return Optional.ofNullable(productByBarcode.get(barcode));
     }
 }

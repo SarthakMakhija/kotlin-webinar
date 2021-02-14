@@ -16,7 +16,7 @@ public class BarcodeScanner {
     }
 
     public Product scanOrThrow(String barcode) {
-        Optional<Product> product = catalogue.productFor(barcode);
+        Optional<Product> product = catalogue.productWith(barcode);
         return product.orElseThrow(() -> new NoProductFoundForBarcodeException(barcode));
     }
 }

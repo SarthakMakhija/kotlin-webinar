@@ -13,7 +13,7 @@ class CatalogueUnitTest {
     @Test
     void shouldNoReturnAnProductGivenCatalogueIsEmpty() {
         Catalogue catalogue = new Catalogue(Collections.emptyList());
-        Optional<Product> product = catalogue.productFor("any-barcode");
+        Optional<Product> product = catalogue.productWith("any-barcode");
 
         assertThat(product.isEmpty()).isTrue();
     }
@@ -21,7 +21,7 @@ class CatalogueUnitTest {
     @Test
     void shouldNoReturnAnProductGivenProductDoesNotExistForTheBarcode() {
         Catalogue catalogue = new Catalogue(List.of(new Product("001", "barcode-001")));
-        Optional<Product> product = catalogue.productFor("non-existent-product-for-barcode");
+        Optional<Product> product = catalogue.productWith("non-existent-product-for-barcode");
 
         assertThat(product.isEmpty()).isTrue();
     }
@@ -29,7 +29,7 @@ class CatalogueUnitTest {
     @Test
     void shouldReturnAnProductWithProductIdGivenABarcode() {
         Catalogue catalogue = new Catalogue(List.of(new Product("001", "barcode-001")));
-        Optional<Product> product = catalogue.productFor("barcode-001");
+        Optional<Product> product = catalogue.productWith("barcode-001");
 
         assertThat(product.get().id()).isEqualTo("001");
     }
