@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CatalogueUnitTest {
 
     @Test
-    void shouldNoReturnAnProductGivenCatalogueIsEmpty() {
+    void shouldNoReturnAProductGivenCatalogueIsEmpty() {
         Catalogue catalogue = new Catalogue(Collections.emptyList());
         Optional<Product> product = catalogue.productWith("any-barcode");
 
@@ -19,7 +19,15 @@ class CatalogueUnitTest {
     }
 
     @Test
-    void shouldNoReturnAnProductGivenProductDoesNotExistForTheBarcode() {
+    void shouldNoReturnAProductGivenBarcodeIsNull() {
+        Catalogue catalogue = new Catalogue(Collections.emptyList());
+        Optional<Product> product = catalogue.productWith(null);
+
+        assertThat(product.isEmpty()).isTrue();
+    }
+
+    @Test
+    void shouldNoReturnAProductGivenProductDoesNotExistForTheBarcode() {
         Catalogue catalogue = new Catalogue(List.of(new Product("001", "barcode-001")));
         Optional<Product> product = catalogue.productWith("non-existent-product-for-barcode");
 
@@ -27,7 +35,7 @@ class CatalogueUnitTest {
     }
 
     @Test
-    void shouldReturnAnProductWithProductIdGivenABarcode() {
+    void shouldReturnAProductWithProductIdGivenABarcode() {
         Catalogue catalogue = new Catalogue(List.of(new Product("001", "barcode-001")));
         Optional<Product> product = catalogue.productWith("barcode-001");
 
