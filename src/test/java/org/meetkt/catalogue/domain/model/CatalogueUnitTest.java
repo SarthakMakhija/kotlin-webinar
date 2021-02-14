@@ -12,9 +12,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CatalogueUnitTest {
 
     @Test
-    void shouldReturnAnEmptyOptionalGivenItemIsNotPresentInCatalogueForBarcode() {
+    void shouldNoReturnAnItemGivenCatalogueIsEmpty() {
         Catalogue catalogue = new Catalogue(Collections.emptyMap());
         Optional<Item> item = catalogue.itemFor("any-barcode");
+
+        assertThat(item.isEmpty()).isTrue();
+    }
+
+    @Test
+    void shouldNoReturnAnItemGivenItemDoesNotExistForTheBarcode() {
+        Catalogue catalogue = new Catalogue(Map.of("barcode-001", new Item("001")));
+        Optional<Item> item = catalogue.itemFor("non-existent-item-for-barcode");
 
         assertThat(item.isEmpty()).isTrue();
     }
