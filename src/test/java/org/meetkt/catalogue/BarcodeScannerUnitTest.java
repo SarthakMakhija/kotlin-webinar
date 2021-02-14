@@ -22,9 +22,7 @@ class BarcodeScannerUnitTest {
 
         BarcodeScanner barcodeScanner = new BarcodeScanner(catalogue);
         assertThrows(NoItemFoundForBarcodeException.class,
-                () -> {
-                    barcodeScanner.scan(barcode);
-                }
+                () -> barcodeScanner.scan(barcode)
         );
     }
 
