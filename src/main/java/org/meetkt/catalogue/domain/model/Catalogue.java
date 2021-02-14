@@ -2,6 +2,7 @@ package org.meetkt.catalogue.domain.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -13,7 +14,7 @@ public class Catalogue {
 
     public Catalogue(List<Product> products) {
         this.productByBarcode =
-                products.stream().collect(toMap(Product::barcode, Function.identity()));
+                Objects.requireNonNull(products).stream().collect(toMap(Product::barcode, Function.identity()));
     }
 
     public Optional<Product> productFor(String barcode) {
