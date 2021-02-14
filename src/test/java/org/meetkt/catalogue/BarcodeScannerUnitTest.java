@@ -18,7 +18,7 @@ class BarcodeScannerUnitTest {
     void shouldThrowAnExceptionGivenItemDoesNotExistForTheBarcode() {
         String barcode = "no-item-found-for-this-barcode";
         Catalogue catalogue = mock(Catalogue.class);
-        when(catalogue.itemForm(barcode)).thenReturn(Optional.empty());
+        when(catalogue.itemFor(barcode)).thenReturn(Optional.empty());
 
         BarcodeScanner barcodeScanner = new BarcodeScanner(catalogue);
         assertThrows(NoItemFoundForBarcodeException.class,
@@ -33,7 +33,7 @@ class BarcodeScannerUnitTest {
         String barcode = "item-001-barcode";
         Catalogue catalogue = mock(Catalogue.class);
         BarcodeScanner barcodeScanner = new BarcodeScanner(catalogue);
-        when(catalogue.itemForm(barcode)).thenReturn(Optional.of(new Item("001")));
+        when(catalogue.itemFor(barcode)).thenReturn(Optional.of(new Item("001")));
 
         Item item = barcodeScanner.scan(barcode);
         assertThat(item.productId()).isEqualTo("001");
