@@ -22,7 +22,7 @@ class BarcodeScannerUnitTest {
 
         BarcodeScanner barcodeScanner = new BarcodeScanner(catalogue);
         assertThrows(NoProductFoundForBarcodeException.class,
-                () -> barcodeScanner.scan(barcode)
+                () -> barcodeScanner.scanOrThrow(barcode)
         );
     }
 
@@ -33,7 +33,7 @@ class BarcodeScannerUnitTest {
         BarcodeScanner barcodeScanner = new BarcodeScanner(catalogue);
         when(catalogue.productFor(barcode)).thenReturn(Optional.of(new Product("001")));
 
-        Product product = barcodeScanner.scan(barcode);
+        Product product = barcodeScanner.scanOrThrow(barcode);
         assertThat(product.id()).isEqualTo("001");
     }
 }
