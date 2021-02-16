@@ -5,14 +5,14 @@ import org.meetkt.catalogue.domain.model.Product;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class ItemUnitTest {
+class CartItemUnitTest {
 
     @Test
     void shouldReturnTrueGivenItemIsOfAGivenProduct() {
         Product product = new Product("001", "barcode-001");
-        Item item = new Item(product, 1);
+        CartItem cartItem = new CartItem(product, 1);
 
-        boolean containsProduct = item.contains(new Product("001", "barcode-001"));
+        boolean containsProduct = cartItem.contains(new Product("001", "barcode-001"));
 
         assertThat(containsProduct).isTrue();
     }
@@ -20,9 +20,9 @@ class ItemUnitTest {
     @Test
     void shouldReturnFalseGivenItemIsNotOfGivenProduct() {
         Product product = new Product("001", "barcode-001");
-        Item item = new Item(product, 1);
+        CartItem cartItem = new CartItem(product, 1);
 
-        boolean containsProduct = item.contains(new Product("002", "barcode-002"));
+        boolean containsProduct = cartItem.contains(new Product("002", "barcode-002"));
 
         assertThat(containsProduct).isFalse();
     }

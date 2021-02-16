@@ -25,7 +25,7 @@ class CartUnitTest {
         Cart cart = new Cart();
         cart.add(product);
 
-        cart.delete(new Item(product, 1));
+        cart.delete(new CartItem(product, 1));
 
         assertThat(cart.totalItems()).isZero();
     }
@@ -45,7 +45,7 @@ class CartUnitTest {
     void shouldReturnAnEmptyItemGivenProductDoesNotExistsInCart() {
         Cart cart = new Cart();
 
-        Optional<Item> item = cart.find(new Product("001", "barcode-001"));
+        Optional<CartItem> item = cart.find(new Product("001", "barcode-001"));
 
         assertThat(item).isEmpty();
     }
@@ -56,7 +56,7 @@ class CartUnitTest {
         Cart cart = new Cart();
         cart.add(product);
 
-        Optional<Item> item = cart.find(new Product("001", "barcode-001"));
+        Optional<CartItem> item = cart.find(new Product("001", "barcode-001"));
 
         assertThat(item.get().quantity()).isEqualTo(1);
     }

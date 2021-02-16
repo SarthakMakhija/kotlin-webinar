@@ -4,11 +4,11 @@ import org.meetkt.catalogue.domain.model.Product;
 
 import java.util.Objects;
 
-public class Item {
+public class CartItem {
     private Product product;
     private int quantity;
 
-    public Item(Product product, int quantity) {
+    public CartItem(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
@@ -25,8 +25,8 @@ public class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return product.equals(item.product);
+        CartItem cartItem = (CartItem) o;
+        return product.equals(cartItem.product);
     }
 
     @Override

@@ -8,28 +8,28 @@ import java.util.Optional;
 
 public class Cart {
     public static final int DEFAULT_PRODUCT_QUANTITY_IN_CART = 1;
-    private List<Item> items;
+    private List<CartItem> cartItems;
 
     public Cart() {
-        this.items = new ArrayList<>();
+        this.cartItems = new ArrayList<>();
     }
 
     public void add(Product product) {
-        this.items.add(new Item(product, DEFAULT_PRODUCT_QUANTITY_IN_CART));
+        this.cartItems.add(new CartItem(product, DEFAULT_PRODUCT_QUANTITY_IN_CART));
     }
 
     int totalItems() {
-        return this.items.size();
+        return this.cartItems.size();
     }
 
-    public void delete(Item anItem) {
-        this.items.remove(anItem);
+    public void delete(CartItem anCartItem) {
+        this.cartItems.remove(anCartItem);
     }
 
-    public Optional<Item> find(Product product) {
-        return this.items
+    public Optional<CartItem> find(Product product) {
+        return this.cartItems
                 .stream()
-                .filter(item -> item.contains(product))
+                .filter(cartItem -> cartItem.contains(product))
                 .findFirst();
     }
 }
