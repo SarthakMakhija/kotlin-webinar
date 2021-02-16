@@ -3,6 +3,7 @@ package org.meetkt.catalogue;
 import org.junit.jupiter.api.Test;
 import org.meetkt.catalogue.domain.model.Catalogue;
 import org.meetkt.catalogue.domain.model.Product;
+import org.meetkt.catalogue.domain.model.ProductId;
 import org.meetkt.catalogue.exception.NoProductFoundForBarcodeException;
 
 import java.util.Optional;
@@ -34,6 +35,6 @@ class BarcodeScannerUnitTest {
         when(catalogue.productWith(barcode)).thenReturn(Optional.of(new Product("001", "product-001-barcode")));
 
         Product product = barcodeScanner.scanOrThrow(barcode);
-        assertThat(product.id()).isEqualTo("001");
+        assertThat(product.id()).isEqualTo(new ProductId("001"));
     }
 }

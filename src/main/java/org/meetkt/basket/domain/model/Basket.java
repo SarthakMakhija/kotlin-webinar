@@ -28,7 +28,7 @@ public class Basket {
     }
 
     public void delete(Product product) {
-        this.items.removeIf(item -> item.contains(new ProductId(product.id())));
+        this.items.removeIf(item -> item.contains(product.id()));
     }
 
     public Optional<Item> findBy(ProductId productId) {

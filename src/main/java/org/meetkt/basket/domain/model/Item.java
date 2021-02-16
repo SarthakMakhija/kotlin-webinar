@@ -10,7 +10,7 @@ public class Item {
     private final ProductId productId;
 
     public Item(Product product) {
-        this.productId = new ProductId(Objects.requireNonNull(product).id());
+        this.productId = Objects.requireNonNull(product).id();
     }
 
     //TODO: Think of a better name

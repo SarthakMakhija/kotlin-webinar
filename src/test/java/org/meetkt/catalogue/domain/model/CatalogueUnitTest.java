@@ -39,6 +39,6 @@ class CatalogueUnitTest {
         Catalogue catalogue = new Catalogue(List.of(new Product("001", "barcode-001")));
         Optional<Product> product = catalogue.productWith("barcode-001");
 
-        assertThat(product.get().id()).isEqualTo("001");
+        assertThat(product.get().id()).isEqualTo(new ProductId("001"));
     }
 }

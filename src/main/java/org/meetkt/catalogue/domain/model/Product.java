@@ -12,8 +12,8 @@ public class Product {
         this.barcode = Objects.requireNonNull(barcode);
     }
 
-    public String id() {
-        return id;
+    public ProductId id() {
+        return new ProductId(id);
     }
 
     public String barcode() {
