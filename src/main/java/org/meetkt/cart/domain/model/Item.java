@@ -18,12 +18,11 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return quantity == item.quantity &&
-                Objects.equals(product, item.product);
+        return product.equals(item.product);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(product, quantity);
+        return Objects.hash(product);
     }
 }
