@@ -33,6 +33,19 @@ class CartUnitTest {
     }
 
     @Test
+    void shouldAddMultipleProductsInCart() {
+        Cart cart = Cart.empty();
+
+        cart.add(
+                new Product("001", "barcode-001"),
+                new Product("002", "barcode-002")
+        );
+
+        assertThat(cart.totalItems()).isEqualTo(2);
+    }
+
+
+    @Test
     void shouldDeleteAProductFromCart() {
         Product product = new Product("001", "barcode-001");
         Cart cart = Cart.empty();

@@ -3,6 +3,7 @@ package org.meetkt.cart.domain.model;
 import org.meetkt.catalogue.domain.model.Product;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -25,6 +26,10 @@ public class Cart {
                         incrementExistingProductQuantity(),
                         addNew(product)
                 );
+    }
+
+    public void add(Product... products) {
+        Arrays.stream(products).forEach(this::add);
     }
 
     private Runnable addNew(Product product) {
