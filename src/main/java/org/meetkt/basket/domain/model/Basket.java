@@ -2,8 +2,8 @@ package org.meetkt.basket.domain.model;
 
 import org.meetkt.catalogue.domain.model.Product;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 
 public class Basket {
@@ -11,7 +11,7 @@ public class Basket {
     private final Items items;
 
     private Basket() {
-        this.items = new Items();
+        this.items = new Items(Collections.emptyList());
     }
 
     public static Basket empty() {
@@ -31,7 +31,7 @@ public class Basket {
     }
 
     public Optional<Item> find(Product product) {
-        return items.getFirst(product);
+        return items.findFirst(product);
     }
 
     public int totalItems() {
@@ -39,12 +39,3 @@ public class Basket {
     }
 }
 
-class Items extends ArrayList<Item> {
-
-    public Optional<Item> getFirst(Product product) {
-        return this
-                .stream()
-                .filter(item -> item.contains(product))
-                .findFirst();
-    }
-}

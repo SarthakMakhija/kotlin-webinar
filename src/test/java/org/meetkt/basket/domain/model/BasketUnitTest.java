@@ -66,7 +66,7 @@ class BasketUnitTest {
     }
 
     @Test
-    void shouldReturnAnEmptyItemGivenProductDoesNotExistsInBasket() {
+    void shouldReturnAnEmptyItemGivenProductDoesNotExistInBasket() {
         Basket basket = Basket.empty();
         Product product = new Product("001", "barcode-001");
 
