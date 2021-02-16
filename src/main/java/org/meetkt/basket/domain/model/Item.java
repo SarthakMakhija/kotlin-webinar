@@ -20,7 +20,7 @@ public class Item {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Item)) return false;
         Item item = (Item) o;
         return product.equals(item.product);
     }
