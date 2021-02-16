@@ -16,16 +16,29 @@ class CartUnitTest {
 
         cart.add(product);
 
-        assertThat(cart.totalItems()).isEqualTo(1);
+        Optional<CartItem> cartItem = cart.find(new Product("001", "barcode-001"));
+        assertThat(cartItem.get().quantity()).isEqualTo(1);
     }
 
     @Test
-    void shouldDeleteAnItemFromCart() {
+    void shouldIncrementTheItemQuantityGivenExistingProductIsAdded() {
         Product product = new Product("001", "barcode-001");
         Cart cart = Cart.empty();
         cart.add(product);
 
-        cart.delete(new CartItem(product, 1));
+        cart.add(product);
+
+        Optional<CartItem> cartItem = cart.find(new Product("001", "barcode-001"));
+        assertThat(cartItem.get().quantity()).isEqualTo(2);
+    }
+
+    @Test
+    void shouldDeleteAProductFromCart() {
+        Product product = new Product("001", "barcode-001");
+        Cart cart = Cart.empty();
+        cart.add(product);
+
+        cart.delete(new Product("001", "barcode-001"));
 
         assertThat(cart.totalItems()).isZero();
     }

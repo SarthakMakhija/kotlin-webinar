@@ -33,4 +33,8 @@ public class CartItem {
     public int hashCode() {
         return Objects.hash(product);
     }
+
+    public void incrementQuantity() {
+        this.quantity = this.quantity + 1;
+    }
 }
