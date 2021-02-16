@@ -68,9 +68,8 @@ class BasketUnitTest {
     @Test
     void shouldReturnAnEmptyItemGivenProductDoesNotExistInBasket() {
         Basket basket = Basket.empty();
-        Product product = new Product("001", "barcode-001");
 
-        Optional<Item> item = basket.find(product);
+        Optional<Item> item = basket.findBy("001");
 
         assertThat(item).isEmpty();
     }
@@ -81,7 +80,7 @@ class BasketUnitTest {
         Product product = new Product("001", "barcode-001");
         basket.add(product);
 
-        Optional<Item> item = basket.find(new Product("001", "barcode-001"));
+        Optional<Item> item = basket.findBy("001");
 
         assertThat(item.get()).isEqualTo(new Item(product));
     }

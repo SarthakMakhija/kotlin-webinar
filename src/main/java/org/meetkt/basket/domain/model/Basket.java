@@ -27,11 +27,11 @@ public class Basket {
     }
 
     public void delete(Product product) {
-        this.items.removeIf(item -> item.contains(product));
+        this.items.removeIf(item -> item.contains(product.id()));
     }
 
-    public Optional<Item> find(Product product) {
-        return items.findFirst(product);
+    public Optional<Item> findBy(String productId) {
+        return items.findFirst(productId);
     }
 
     public int totalItems() {

@@ -1,7 +1,5 @@
 package org.meetkt.basket.domain.model;
 
-import org.meetkt.catalogue.domain.model.Product;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,10 +10,10 @@ public class Items extends ArrayList<Item> {
         super(items);
     }
 
-    public Optional<Item> findFirst(Product product) {
+    public Optional<Item> findFirst(String productId) {
         return this
                 .stream()
-                .filter(item -> item.contains(product))
+                .filter(item -> item.contains(productId))
                 .findFirst();
     }
 }

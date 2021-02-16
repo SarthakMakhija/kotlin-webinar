@@ -15,7 +15,7 @@ class ItemsUnitTest {
         Product product = new Product("001", "barcode-001");
         Items items = new Items(List.of(new Item(product)));
 
-        Optional<Item> item = items.findFirst(new Product("non-existing", "barcode-002"));
+        Optional<Item> item = items.findFirst("non-existing");
 
         assertThat(item).isEmpty();
     }
@@ -25,7 +25,7 @@ class ItemsUnitTest {
         Product product = new Product("001", "barcode-001");
         Items items = new Items(List.of(new Item(product)));
 
-        Optional<Item> item = items.findFirst(new Product("001", "barcode-001"));
+        Optional<Item> item = items.findFirst("001");
 
         assertThat(item.get()).isEqualTo(new Item(product));
     }

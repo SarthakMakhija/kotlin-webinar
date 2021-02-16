@@ -13,8 +13,8 @@ public class Item {
     }
 
     //TODO: Think of a better name
-    public boolean contains(Product product) {
-        return this.product.equals(product);
+    public boolean contains(String productId) {
+        return this.product.id().equals(productId);
     }
 
     @Override

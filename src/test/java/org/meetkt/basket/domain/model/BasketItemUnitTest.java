@@ -12,7 +12,7 @@ class BasketItemUnitTest {
         Product product = new Product("001", "barcode-001");
         Item item = new Item(product);
 
-        boolean containsProduct = item.contains(new Product("001", "barcode-001"));
+        boolean containsProduct = item.contains("001");
 
         assertThat(containsProduct).isTrue();
     }
@@ -22,7 +22,7 @@ class BasketItemUnitTest {
         Product product = new Product("001", "barcode-001");
         Item item = new Item(product);
 
-        boolean containsProduct = item.contains(new Product("002", "barcode-002"));
+        boolean containsProduct = item.contains("002");
 
         assertThat(containsProduct).isFalse();
     }
