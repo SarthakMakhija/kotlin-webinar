@@ -27,8 +27,8 @@ public class Basket {
         Arrays.stream(products).forEach(this::add);
     }
 
-    public void delete(Product product) {
-        this.items.removeIf(item -> item.contains(product.id()));
+    public void deleteAllProductsMatching(ProductId productId) {
+        this.items.removeIf(item -> item.contains(productId));
     }
 
     public Optional<Item> findBy(ProductId productId) {

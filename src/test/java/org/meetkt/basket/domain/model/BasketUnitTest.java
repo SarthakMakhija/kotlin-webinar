@@ -46,14 +46,15 @@ class BasketUnitTest {
     }
 
     @Test
-    void shouldDeleteAProductFromBasket() {
+    void shouldDeleteAllProductsMatchingProductId() {
         Product product = aProduct().withProductId("001").build();
         Basket basket = Basket.empty();
         basket.add(product);
+        basket.add(product);
 
-        basket.delete(aProduct().withProductId("001").build());
+        basket.deleteAllProductsMatching(new ProductId("001"));
 
-        assertThat(basket.totalItems()).isZero();
+        assertThat(basket.totalItems()).isEqualTo(0);
     }
 
     @Test
