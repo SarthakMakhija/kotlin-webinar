@@ -32,7 +32,7 @@ public class CartItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(product);
+        return product.hashCode();
     }
 
     public void incrementQuantity() {
