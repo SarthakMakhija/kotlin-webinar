@@ -4,15 +4,14 @@ import org.meetkt.catalogue.domain.model.Product;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 public class Basket {
 
-    private final List<Item> items;
+    private final Items items;
 
     private Basket() {
-        this.items = new ArrayList<>();
+        this.items = new Items();
     }
 
     public static Basket empty() {
@@ -32,13 +31,20 @@ public class Basket {
     }
 
     public Optional<Item> find(Product product) {
-        return this.items
-                .stream()
-                .filter(item -> item.contains(product))
-                .findFirst();
+        return items.getFirst(product);
     }
 
     public int totalItems() {
         return this.items.size();
+    }
+}
+
+class Items extends ArrayList<Item> {
+
+    public Optional<Item> getFirst(Product product) {
+        return this
+                .stream()
+                .filter(item -> item.contains(product))
+                .findFirst();
     }
 }
