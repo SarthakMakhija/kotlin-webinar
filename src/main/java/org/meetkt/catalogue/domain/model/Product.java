@@ -1,13 +1,15 @@
 package org.meetkt.catalogue.domain.model;
 
+import java.util.Objects;
+
 public class Product {
 
     private final String id;
     private final String barcode;
 
     public Product(String id, String barcode) {
-        this.id = id;
-        this.barcode = barcode;
+        this.id = Objects.requireNonNull(id);
+        this.barcode = Objects.requireNonNull(barcode);
     }
 
     public String id() {

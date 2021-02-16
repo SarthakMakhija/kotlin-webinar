@@ -2,13 +2,15 @@ package org.meetkt.cart.domain.model;
 
 import org.meetkt.catalogue.domain.model.Product;
 
+import java.util.Objects;
+
 public class CartItem {
 
     private final Product product;
     private int quantity;
 
     public CartItem(Product product, int quantity) {
-        this.product = product;
+        this.product = Objects.requireNonNull(product);
         this.quantity = quantity;
     }
 
