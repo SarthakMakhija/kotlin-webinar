@@ -83,6 +83,6 @@ class BasketUnitTest {
 
         Optional<Item> item = basket.find(new Product("001", "barcode-001"));
 
-        assertThat(item.get().quantity()).isEqualTo(1);
+        assertThat(item.get()).isEqualTo(new Item(product, 1));
     }
 }
