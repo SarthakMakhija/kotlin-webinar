@@ -2,6 +2,7 @@ package org.meetkt.basket.domain.model;
 
 import org.junit.jupiter.api.Test;
 import org.meetkt.catalogue.domain.model.Product;
+import org.meetkt.catalogue.domain.model.ProductId;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -12,7 +13,7 @@ class BasketItemUnitTest {
         Product product = new Product("001", "barcode-001");
         Item item = new Item(product);
 
-        boolean containsProduct = item.contains("001");
+        boolean containsProduct = item.contains(new ProductId("001"));
 
         assertThat(containsProduct).isTrue();
     }
@@ -22,7 +23,7 @@ class BasketItemUnitTest {
         Product product = new Product("001", "barcode-001");
         Item item = new Item(product);
 
-        boolean containsProduct = item.contains("002");
+        boolean containsProduct = item.contains(new ProductId("002"));
 
         assertThat(containsProduct).isFalse();
     }

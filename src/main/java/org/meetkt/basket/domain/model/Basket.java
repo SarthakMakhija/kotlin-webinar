@@ -1,6 +1,7 @@
 package org.meetkt.basket.domain.model;
 
 import org.meetkt.catalogue.domain.model.Product;
+import org.meetkt.catalogue.domain.model.ProductId;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,10 +28,10 @@ public class Basket {
     }
 
     public void delete(Product product) {
-        this.items.removeIf(item -> item.contains(product.id()));
+        this.items.removeIf(item -> item.contains(new ProductId(product.id())));
     }
 
-    public Optional<Item> findBy(String productId) {
+    public Optional<Item> findBy(ProductId productId) {
         return items.findFirst(productId);
     }
 

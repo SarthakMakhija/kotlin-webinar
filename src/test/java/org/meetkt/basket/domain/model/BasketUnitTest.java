@@ -2,6 +2,7 @@ package org.meetkt.basket.domain.model;
 
 import org.junit.jupiter.api.Test;
 import org.meetkt.catalogue.domain.model.Product;
+import org.meetkt.catalogue.domain.model.ProductId;
 
 import java.util.Optional;
 
@@ -69,7 +70,7 @@ class BasketUnitTest {
     void shouldReturnAnEmptyItemGivenProductDoesNotExistInBasket() {
         Basket basket = Basket.empty();
 
-        Optional<Item> item = basket.findBy("001");
+        Optional<Item> item = basket.findBy(new ProductId("001"));
 
         assertThat(item).isEmpty();
     }
@@ -80,7 +81,7 @@ class BasketUnitTest {
         Product product = new Product("001", "barcode-001");
         basket.add(product);
 
-        Optional<Item> item = basket.findBy("001");
+        Optional<Item> item = basket.findBy(new ProductId("001"));
 
         assertThat(item.get()).isEqualTo(new Item(product));
     }
