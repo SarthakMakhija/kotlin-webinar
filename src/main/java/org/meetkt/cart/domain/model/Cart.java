@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 public class Cart {
     public static final int DEFAULT_PRODUCT_QUANTITY_IN_CART = 1;
-    private List<CartItem> cartItems;
+    private final List<CartItem> cartItems;
 
     private Cart() {
         this.cartItems = new ArrayList<>();

@@ -5,7 +5,8 @@ import org.meetkt.catalogue.domain.model.Product;
 import java.util.Objects;
 
 public class CartItem {
-    private Product product;
+
+    private final Product product;
     private int quantity;
 
     public CartItem(Product product, int quantity) {
