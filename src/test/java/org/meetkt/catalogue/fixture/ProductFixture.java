@@ -1,11 +1,12 @@
 package org.meetkt.catalogue.fixture;
 
 import org.meetkt.catalogue.domain.model.Product;
+import org.meetkt.catalogue.domain.model.ProductId;
 
 public class ProductFixture {
 
     private String barcode = "ZZZZZZZ";
-    private String productId;
+    private ProductId productId;
 
     private ProductFixture() {
     }
@@ -20,7 +21,7 @@ public class ProductFixture {
     }
 
     public ProductFixture withProductId(String productId) {
-        this.productId = productId;
+        this.productId = new ProductId(productId);
         return this;
     }
 
