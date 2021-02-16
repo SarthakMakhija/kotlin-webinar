@@ -1,15 +1,15 @@
-package org.meetkt.cart.domain.model;
+package org.meetkt.basket.domain.model;
 
 import org.meetkt.catalogue.domain.model.Product;
 
 import java.util.Objects;
 
-public class CartItem {
+public class Item {
 
     private final Product product;
     private int quantity;
 
-    public CartItem(Product product, int quantity) {
+    public Item(Product product, int quantity) {
         this.product = Objects.requireNonNull(product);
         this.quantity = quantity;
     }
@@ -26,8 +26,8 @@ public class CartItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CartItem cartItem = (CartItem) o;
-        return product.equals(cartItem.product);
+        Item item = (Item) o;
+        return product.equals(item.product);
     }
 
     @Override
