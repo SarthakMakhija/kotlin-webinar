@@ -7,15 +7,9 @@ import java.util.Objects;
 public class Item {
 
     private final Product product;
-    private int quantity;
 
-    public Item(Product product, int quantity) {
+    public Item(Product product) {
         this.product = Objects.requireNonNull(product);
-        this.quantity = quantity;
-    }
-
-    public int quantity() {
-        return this.quantity;
     }
 
     public boolean contains(Product product) {

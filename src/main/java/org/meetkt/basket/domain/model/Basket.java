@@ -9,7 +9,6 @@ import java.util.Optional;
 
 public class Basket {
 
-    public static final int DEFAULT_PRODUCT_QUANTITY_IN_BASKET = 1;
     private final List<Item> items;
 
     private Basket() {
@@ -21,7 +20,7 @@ public class Basket {
     }
 
     public void add(Product product) {
-        this.items.add(new Item(product, DEFAULT_PRODUCT_QUANTITY_IN_BASKET));
+        this.items.add(new Item(product));
     }
 
     public void add(Product... products) {

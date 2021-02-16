@@ -10,7 +10,7 @@ class BasketItemUnitTest {
     @Test
     void shouldReturnTrueGivenItemIsOfAGivenProduct() {
         Product product = new Product("001", "barcode-001");
-        Item item = new Item(product, 1);
+        Item item = new Item(product);
 
         boolean containsProduct = item.contains(new Product("001", "barcode-001"));
 
@@ -20,7 +20,7 @@ class BasketItemUnitTest {
     @Test
     void shouldReturnFalseGivenItemIsNotOfGivenProduct() {
         Product product = new Product("001", "barcode-001");
-        Item item = new Item(product, 1);
+        Item item = new Item(product);
 
         boolean containsProduct = item.contains(new Product("002", "barcode-002"));
 
