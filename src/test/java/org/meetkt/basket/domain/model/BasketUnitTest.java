@@ -21,19 +21,19 @@ class BasketUnitTest {
     }
 
     @Test
-    void shouldIncrementTheItemQuantityGivenExistingProductIsAdded() {
-        Product product = new Product("001", "barcode-001");
+    void shouldAddMultipleProductsInBasketGivenSameProducts() {
         Basket basket = Basket.empty();
-        basket.add(product);
 
-        basket.add(product);
+        basket.add(
+                new Product("001", "barcode-001"),
+                new Product("001", "barcode-001")
+        );
 
-        Optional<Item> item = basket.find(new Product("001", "barcode-001"));
-        assertThat(item.get().quantity()).isEqualTo(2);
+        assertThat(basket.totalItems()).isEqualTo(2);
     }
 
     @Test
-    void shouldAddMultipleProductsInBasket() {
+    void shouldAddMultipleProductsInBasketGivenDifferentProducts() {
         Basket basket = Basket.empty();
 
         basket.add(
@@ -43,7 +43,6 @@ class BasketUnitTest {
 
         assertThat(basket.totalItems()).isEqualTo(2);
     }
-
 
     @Test
     void shouldDeleteAProductFromBasket() {

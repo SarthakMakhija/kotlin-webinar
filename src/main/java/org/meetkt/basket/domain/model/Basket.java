@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class Basket {
+
     public static final int DEFAULT_PRODUCT_QUANTITY_IN_BASKET = 1;
     private final List<Item> items;
 
@@ -21,30 +21,11 @@ public class Basket {
     }
 
     public void add(Product product) {
-        this.find(product)
-                .ifPresentOrElse(
-                        incrementExistingProductQuantity(),
-                        addNew(product)
-                );
+        this.items.add(new Item(product, DEFAULT_PRODUCT_QUANTITY_IN_BASKET));
     }
 
     public void add(Product... products) {
         Arrays.stream(products).forEach(this::add);
-    }
-
-    private Runnable addNew(Product product) {
-        return () -> this.items.add(new Item(product, DEFAULT_PRODUCT_QUANTITY_IN_BASKET));
-    }
-
-    private Consumer<Item> incrementExistingProductQuantity() {
-        return (item) -> {
-            item.incrementQuantity();
-            this.items.add(item);
-        };
-    }
-
-    int totalItems() {
-        return this.items.size();
     }
 
     public void delete(Product product) {
@@ -56,5 +37,9 @@ public class Basket {
                 .stream()
                 .filter(item -> item.contains(product))
                 .findFirst();
+    }
+
+    int totalItems() {
+        return this.items.size();
     }
 }
