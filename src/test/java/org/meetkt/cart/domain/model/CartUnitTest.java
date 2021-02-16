@@ -10,10 +10,9 @@ class CartUnitTest {
     @Test
     void shouldAddAnItemToCart() {
         Product product = new Product("001", "barcode-001");
-        Item item = new Item(product, 1);
         Cart cart = new Cart();
 
-        cart.add(item);
+        cart.add(product);
 
         assertThat(cart.totalItems()).isEqualTo(1);
     }
@@ -21,9 +20,8 @@ class CartUnitTest {
     @Test
     void shouldDeleteAnItemFromCart() {
         Product product = new Product("001", "barcode-001");
-        Item item = new Item(product, 1);
         Cart cart = new Cart();
-        cart.add(item);
+        cart.add(product);
 
         cart.delete(new Item(product, 1));
 
@@ -33,10 +31,11 @@ class CartUnitTest {
     @Test
     void shouldReturnTotalItemsInCart() {
         Product product = new Product("001", "barcode-001");
-        Item item = new Item(product, 1);
         Cart cart = new Cart();
-        cart.add(item);
+        cart.add(product);
 
-        assertThat(cart.totalItems()).isEqualTo(1);
+        int totalItemsCount = cart.totalItems();
+
+        assertThat(totalItemsCount).isEqualTo(1);
     }
 }
