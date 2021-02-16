@@ -2,8 +2,6 @@ package org.meetkt.cart.domain.model;
 
 import org.meetkt.catalogue.domain.model.Product;
 
-import java.util.Objects;
-
 public class CartItem {
 
     private final Product product;

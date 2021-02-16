@@ -1,7 +1,5 @@
 package org.meetkt.catalogue.domain.model;
 
-import java.util.Objects;
-
 public class Product {
 
     private final String id;
