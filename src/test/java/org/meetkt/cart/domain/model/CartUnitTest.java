@@ -12,7 +12,7 @@ class CartUnitTest {
     @Test
     void shouldAddAProductInCart() {
         Product product = new Product("001", "barcode-001");
-        Cart cart = new Cart();
+        Cart cart = Cart.empty();
 
         cart.add(product);
 
@@ -22,7 +22,7 @@ class CartUnitTest {
     @Test
     void shouldDeleteAnItemFromCart() {
         Product product = new Product("001", "barcode-001");
-        Cart cart = new Cart();
+        Cart cart = Cart.empty();
         cart.add(product);
 
         cart.delete(new CartItem(product, 1));
@@ -33,7 +33,7 @@ class CartUnitTest {
     @Test
     void shouldReturnTotalItemsInCart() {
         Product product = new Product("001", "barcode-001");
-        Cart cart = new Cart();
+        Cart cart = Cart.empty();
         cart.add(product);
 
         int totalItemsCount = cart.totalItems();
@@ -43,17 +43,18 @@ class CartUnitTest {
 
     @Test
     void shouldReturnAnEmptyItemGivenProductDoesNotExistsInCart() {
-        Cart cart = new Cart();
+        Cart cart = Cart.empty();
+        Product product = new Product("001", "barcode-001");
 
-        Optional<CartItem> item = cart.find(new Product("001", "barcode-001"));
+        Optional<CartItem> item = cart.find(product);
 
         assertThat(item).isEmpty();
     }
 
     @Test
     void shouldReturnAnItemFromCart() {
+        Cart cart = Cart.empty();
         Product product = new Product("001", "barcode-001");
-        Cart cart = new Cart();
         cart.add(product);
 
         Optional<CartItem> item = cart.find(new Product("001", "barcode-001"));

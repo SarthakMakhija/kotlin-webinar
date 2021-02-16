@@ -10,8 +10,12 @@ public class Cart {
     public static final int DEFAULT_PRODUCT_QUANTITY_IN_CART = 1;
     private List<CartItem> cartItems;
 
-    public Cart() {
+    private Cart() {
         this.cartItems = new ArrayList<>();
+    }
+
+    public static Cart empty() {
+        return new Cart();
     }
 
     public void add(Product product) {
