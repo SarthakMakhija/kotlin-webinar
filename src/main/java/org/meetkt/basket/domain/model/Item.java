@@ -12,6 +12,7 @@ public class Item {
         this.product = Objects.requireNonNull(product);
     }
 
+    //TODO: Think of a better name
     public boolean contains(Product product) {
         return this.product.equals(product);
     }
