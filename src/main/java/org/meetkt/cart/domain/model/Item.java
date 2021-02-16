@@ -13,6 +13,14 @@ public class Item {
         this.quantity = quantity;
     }
 
+    public int quantity() {
+        return this.quantity;
+    }
+
+    public boolean contains(Product product) {
+        return this.product.equals(product);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

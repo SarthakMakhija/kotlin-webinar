@@ -4,6 +4,7 @@ import org.meetkt.catalogue.domain.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Cart {
     public static final int DEFAULT_PRODUCT_QUANTITY_IN_CART = 1;
@@ -23,5 +24,12 @@ public class Cart {
 
     public void delete(Item anItem) {
         this.items.remove(anItem);
+    }
+
+    public Optional<Item> find(Product product) {
+        return this.items
+                .stream()
+                .filter(item -> item.contains(product))
+                .findFirst();
     }
 }
