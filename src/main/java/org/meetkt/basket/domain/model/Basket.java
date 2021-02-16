@@ -39,7 +39,7 @@ public class Basket {
                 .findFirst();
     }
 
-    int totalItems() {
+    public int totalItems() {
         return this.items.size();
     }
 }
