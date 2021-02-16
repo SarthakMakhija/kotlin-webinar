@@ -17,4 +17,8 @@ public class Cart {
     int totalItems() {
         return this.items.size();
     }
+
+    public void delete(Item anItem) {
+        this.items.remove(anItem);
+    }
 }
