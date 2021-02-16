@@ -5,12 +5,13 @@ import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.meetkt.catalogue.fixture.ProductFixture.aProduct;
 
 class BasketItemUnitTest {
 
     @Test
     void shouldReturnTrueGivenItemIsOfAGivenProduct() {
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         Item item = new Item(product);
 
         boolean containsProduct = item.contains(new ProductId("001"));
@@ -20,7 +21,7 @@ class BasketItemUnitTest {
 
     @Test
     void shouldReturnFalseGivenItemIsNotOfGivenProduct() {
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         Item item = new Item(product);
 
         boolean containsProduct = item.contains(new ProductId("002"));

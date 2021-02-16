@@ -7,12 +7,13 @@ import org.meetkt.catalogue.domain.model.ProductId;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.meetkt.catalogue.fixture.ProductFixture.aProduct;
 
 class BasketUnitTest {
 
     @Test
     void shouldAddAProductInBasket() {
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         Basket basket = Basket.empty();
 
         basket.add(product);
@@ -25,8 +26,8 @@ class BasketUnitTest {
         Basket basket = Basket.empty();
 
         basket.add(
-                new Product("001", "barcode-001"),
-                new Product("001", "barcode-001")
+                aProduct().withProductId("001").build(),
+                aProduct().withProductId("001").build()
         );
 
         assertThat(basket.totalItems()).isEqualTo(2);
@@ -37,8 +38,8 @@ class BasketUnitTest {
         Basket basket = Basket.empty();
 
         basket.add(
-                new Product("001", "barcode-001"),
-                new Product("002", "barcode-002")
+                aProduct().withProductId("001").build(),
+                aProduct().withProductId("002").build()
         );
 
         assertThat(basket.totalItems()).isEqualTo(2);
@@ -46,18 +47,18 @@ class BasketUnitTest {
 
     @Test
     void shouldDeleteAProductFromBasket() {
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         Basket basket = Basket.empty();
         basket.add(product);
 
-        basket.delete(new Product("001", "barcode-001"));
+        basket.delete(aProduct().withProductId("001").build());
 
         assertThat(basket.totalItems()).isZero();
     }
 
     @Test
     void shouldReturnTotalItemsInBasket() {
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         Basket basket = Basket.empty();
         basket.add(product);
 
@@ -78,7 +79,7 @@ class BasketUnitTest {
     @Test
     void shouldReturnAnItemFromBasket() {
         Basket basket = Basket.empty();
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         basket.add(product);
 
         Optional<Item> item = basket.findBy(new ProductId("001"));

@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.meetkt.catalogue.fixture.ProductFixture.aProduct;
 
 class ItemsUnitTest {
 
     @Test
     void shouldReturnAnEmptyItemGivenProductDoesNotExistInItems() {
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         Items items = new Items(List.of(new Item(product)));
 
         Optional<Item> item = items.findFirst(new ProductId("non-existing"));
@@ -23,7 +24,7 @@ class ItemsUnitTest {
 
     @Test
     void shouldReturnAnItem() {
-        Product product = new Product("001", "barcode-001");
+        Product product = aProduct().withProductId("001").build();
         Items items = new Items(List.of(new Item(product)));
 
         Optional<Item> item = items.findFirst(new ProductId("001"));
