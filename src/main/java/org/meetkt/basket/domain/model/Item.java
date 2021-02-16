@@ -34,8 +34,4 @@ public class Item {
     public int hashCode() {
         return product.hashCode();
     }
-
-    public void incrementQuantity() {
-        this.quantity = this.quantity + 1;
-    }
 }
