@@ -18,4 +18,17 @@ class DisplayTest {
         // WHEN + THEN
         assertThat(display.getItemsInBasket()).isEqualTo(basket.getItems());
     }
+
+    @Test
+    void shouldReturnTotalPriceOfAllItemsInBasket() {
+        // GIVEN
+        Basket basket = Basket.empty();
+        basket.add(ProductFixture.aProduct().withProductId("abc").withBarcode("cba").withProductPrice(10).build());
+        basket.add(ProductFixture.aProduct().withProductId("jan").withBarcode("naj").withProductPrice(20).build());
+        Display display = new Display(basket);
+
+        // WHEN + THEN
+        int expectedTotal = 30;
+        assertThat(display.getTotalPriceOfAllItems()).isEqualTo(expectedTotal);
+    }
 }
