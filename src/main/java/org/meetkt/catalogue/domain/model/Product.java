@@ -6,10 +6,12 @@ public class Product {
 
     private final ProductId id;
     private final String barcode;
+    private final int price;
 
-    public Product(ProductId id, String barcode) {
+    public Product(ProductId id, String barcode, int price) {
         this.id = Objects.requireNonNull(id);
         this.barcode = Objects.requireNonNull(barcode);
+        this.price = price;
     }
 
     public ProductId id() {
@@ -19,6 +21,8 @@ public class Product {
     public String barcode() {
         return barcode;
     }
+
+    public int getPrice() { return price; }
 
     @Override
     public boolean equals(Object o) {

@@ -8,15 +8,19 @@ import java.util.Objects;
 public class Item {
 
     private final ProductId productId;
+    private final int price;
 
     public Item(Product product) {
         this.productId = Objects.requireNonNull(product).id();
+        this.price = Objects.requireNonNull(product).getPrice();
     }
 
     //TODO: Think of a better name
     public boolean contains(ProductId productId) {
         return this.productId.equals(productId);
     }
+
+    public int getPrice() { return price; }
 
     @Override
     public boolean equals(Object o) {
