@@ -18,4 +18,11 @@ public class Items extends ArrayList<Item> {
                 .filter(item -> item.contains(productId))
                 .findFirst();
     }
+
+    public int totalPrice() {
+        return this.
+                stream()
+                .mapToInt(Item::getPrice)
+                .sum();
+    }
 }

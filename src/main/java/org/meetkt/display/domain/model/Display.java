@@ -14,8 +14,8 @@ public class Display {
         this.basket = Objects.requireNonNull(basket);
     }
 
-    public int getTotalPriceOfAllItems() {
-        return basket.allItems().stream().mapToInt(Item::getPrice).sum();
+    public int totalBasketPrice() {
+        return basket.totalPrice();
     }
 
     public Items allBasketItems() {

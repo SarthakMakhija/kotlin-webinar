@@ -29,6 +29,6 @@ class DisplayTest {
 
         // WHEN + THEN
         int expectedTotal = 30;
-        assertThat(display.getTotalPriceOfAllItems()).isEqualTo(expectedTotal);
+        assertThat(display.totalBasketPrice()).isEqualTo(expectedTotal);
     }
 }

@@ -42,5 +42,8 @@ public class Basket {
     public Items allItems() {
         return this.items;
     }
-}
 
+    public int totalPrice() {
+        return this.items.totalPrice();
+    }
+}
