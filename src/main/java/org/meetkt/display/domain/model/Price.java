@@ -4,9 +4,9 @@ public class Price {
 
     public static final Price ZERO = new Price(0);
 
-    private final int value;
+    private final double value;
 
-    public Price(int value) {
+    public Price(double value) {
         this.value = value;
     }
 
@@ -19,11 +19,11 @@ public class Price {
         if (this == o) return true;
         if (!(o instanceof Price)) return false;
         Price price = (Price) o;
-        return value == price.value;
+        return Double.compare(value, price.value) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Integer.hashCode(value);
+        return Double.hashCode(value);
     }
 }
