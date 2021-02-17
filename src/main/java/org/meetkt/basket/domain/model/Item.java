@@ -12,8 +12,10 @@ public class Item {
     private final Price price;
 
     public Item(Product product) {
-        this.productId = Objects.requireNonNull(product).id();
-        this.price = Objects.requireNonNull(product).price();
+        Objects.requireNonNull(product);
+
+        this.productId = product.id();
+        this.price = product.price();
     }
 
     //TODO: Think of a better name
