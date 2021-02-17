@@ -21,8 +21,8 @@ public class Item {
         return this.productId.equals(productId);
     }
 
-    public int price() {
-        return price.value();
+    public Price price() {
+        return price;
     }
 
     @Override

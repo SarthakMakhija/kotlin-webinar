@@ -33,7 +33,6 @@ class DisplayUnitTest {
 
         Display display = new Display(basket);
 
-        int expectedTotal = 30;
-        assertThat(display.totalBasketPrice()).isEqualTo(expectedTotal);
+        assertThat(display.totalBasketPrice()).isEqualTo(new Price(30));
     }
 }

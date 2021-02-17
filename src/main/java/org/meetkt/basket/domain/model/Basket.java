@@ -2,6 +2,7 @@ package org.meetkt.basket.domain.model;
 
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
+import org.meetkt.display.domain.model.Price;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -43,7 +44,7 @@ public class Basket {
         return this.items;
     }
 
-    public int totalPrice() {
+    public Price totalPrice() {
         return this.items.totalPrice();
     }
 }

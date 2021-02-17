@@ -3,6 +3,7 @@ package org.meetkt.basket.domain.model;
 import org.junit.jupiter.api.Test;
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
+import org.meetkt.display.domain.model.Price;
 
 import java.util.Optional;
 
@@ -94,7 +95,7 @@ class BasketUnitTest {
         Product product = aProduct().withProductId("001").withProductPrice(12).build();
         basket.add(product);
 
-        int totalPrice = basket.totalPrice();
-        assertThat(totalPrice).isEqualTo(12);
+        Price totalPrice = basket.totalPrice();
+        assertThat(totalPrice).isEqualTo(new Price(12));
     }
 }

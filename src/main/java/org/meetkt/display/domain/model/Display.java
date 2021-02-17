@@ -1,7 +1,6 @@
 package org.meetkt.display.domain.model;
 
 import org.meetkt.basket.domain.model.Basket;
-import org.meetkt.basket.domain.model.Item;
 import org.meetkt.basket.domain.model.Items;
 
 import java.util.Objects;
@@ -14,7 +13,7 @@ public class Display {
         this.basket = Objects.requireNonNull(basket);
     }
 
-    public int totalBasketPrice() {
+    public Price totalBasketPrice() {
         return basket.totalPrice();
     }
 

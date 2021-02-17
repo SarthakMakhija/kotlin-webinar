@@ -1,6 +1,7 @@
 package org.meetkt.basket.domain.model;
 
 import org.meetkt.catalogue.domain.model.ProductId;
+import org.meetkt.display.domain.model.Price;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +20,10 @@ public class Items extends ArrayList<Item> {
                 .findFirst();
     }
 
-    public int totalPrice() {
+    public Price totalPrice() {
         return this.
                 stream()
-                .mapToInt(Item::price)
-                .sum();
+                .map(Item::price)
+                .reduce(new Price(0), Price::add);
     }
 }
