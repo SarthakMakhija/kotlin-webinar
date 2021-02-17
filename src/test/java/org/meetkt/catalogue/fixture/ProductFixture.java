@@ -7,6 +7,7 @@ public class ProductFixture {
 
     private String barcode = "ZZZZZZZ";
     private ProductId productId;
+    private int price;
 
     private ProductFixture() {
     }
@@ -25,7 +26,12 @@ public class ProductFixture {
         return this;
     }
 
+    public ProductFixture withProductPrice(int price) {
+        this.price = price;
+        return this;
+    }
+
     public Product build() {
-        return new Product(productId, barcode);
+        return new Product(productId, barcode, price);
     }
 }
