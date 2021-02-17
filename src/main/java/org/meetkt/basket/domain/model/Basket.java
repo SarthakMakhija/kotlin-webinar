@@ -39,6 +39,8 @@ public class Basket {
         return this.items.size();
     }
 
-    public Items getItems() { return this.items; }
+    public Items allItems() {
+        return this.items;
+    }
 }
 

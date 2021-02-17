@@ -16,7 +16,7 @@ class DisplayTest {
         Display display = new Display(basket);
 
         // WHEN + THEN
-        assertThat(display.getItemsInBasket()).isEqualTo(basket.getItems());
+        assertThat(display.allBasketItems()).isEqualTo(basket.allItems());
     }
 
     @Test
