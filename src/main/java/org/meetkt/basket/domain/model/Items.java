@@ -24,6 +24,6 @@ public class Items extends ArrayList<Item> {
         return this.
                 stream()
                 .map(Item::price)
-                .reduce(new Price(0), Price::add);
+                .reduce(Price.ZERO, Price::add);
     }
 }

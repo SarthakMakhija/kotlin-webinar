@@ -2,6 +2,8 @@ package org.meetkt.display.domain.model;
 
 public class Price {
 
+    public static final Price ZERO = new Price(0);
+
     private final int value;
 
     public Price(int value) {
