@@ -10,24 +10,20 @@ class DisplayTest {
 
     @Test
     void shouldReturnItemsFromBasket() {
-        // GIVEN
         Basket basket = Basket.empty();
-        basket.add(ProductFixture.aProduct().withProductId("abc").withBarcode("cba").build());
+        basket.add(ProductFixture.aProduct().withProductId("001").build());
         Display display = new Display(basket);
 
-        // WHEN + THEN
         assertThat(display.allBasketItems()).isEqualTo(basket.allItems());
     }
 
     @Test
     void shouldReturnTotalPriceOfAllItemsInBasket() {
-        // GIVEN
         Basket basket = Basket.empty();
-        basket.add(ProductFixture.aProduct().withProductId("abc").withBarcode("cba").withProductPrice(10).build());
-        basket.add(ProductFixture.aProduct().withProductId("jan").withBarcode("naj").withProductPrice(20).build());
+        basket.add(ProductFixture.aProduct().withProductId("001").withProductPrice(10).build());
+        basket.add(ProductFixture.aProduct().withProductId("002").withProductPrice(20).build());
         Display display = new Display(basket);
 
-        // WHEN + THEN
         int expectedTotal = 30;
         assertThat(display.totalBasketPrice()).isEqualTo(expectedTotal);
     }

@@ -31,4 +31,13 @@ class ItemsUnitTest {
 
         assertThat(item.get()).isEqualTo(new Item(product));
     }
+
+    @Test
+    void shouldReturnTotalPrice() {
+        Product product = aProduct().withProductId("001").withProductPrice(100).build();
+        Items items = new Items(List.of(new Item(product)));
+
+        int totalPrice = items.totalPrice();
+        assertThat(totalPrice).isEqualTo(100);
+    }
 }

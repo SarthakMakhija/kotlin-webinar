@@ -87,4 +87,14 @@ class BasketUnitTest {
 
         assertThat(item.get()).isEqualTo(new Item(product));
     }
+
+    @Test
+    void shouldReturnTotalBasketPrice() {
+        Basket basket = Basket.empty();
+        Product product = aProduct().withProductId("001").withProductPrice(12).build();
+        basket.add(product);
+
+        int totalPrice = basket.totalPrice();
+        assertThat(totalPrice).isEqualTo(12);
+    }
 }
