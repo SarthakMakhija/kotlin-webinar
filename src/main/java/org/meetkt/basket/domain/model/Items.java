@@ -22,7 +22,7 @@ public class Items extends ArrayList<Item> {
     public int totalPrice() {
         return this.
                 stream()
-                .mapToInt(Item::getPrice)
+                .mapToInt(Item::price)
                 .sum();
     }
 }

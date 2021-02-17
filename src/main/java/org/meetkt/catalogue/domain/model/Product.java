@@ -22,7 +22,9 @@ public class Product {
         return barcode;
     }
 
-    public int getPrice() { return price; }
+    public int price() {
+        return price;
+    }
 
     @Override
     public boolean equals(Object o) {

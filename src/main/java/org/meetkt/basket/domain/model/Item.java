@@ -12,7 +12,7 @@ public class Item {
 
     public Item(Product product) {
         this.productId = Objects.requireNonNull(product).id();
-        this.price = Objects.requireNonNull(product).getPrice();
+        this.price = Objects.requireNonNull(product).price();
     }
 
     //TODO: Think of a better name
@@ -20,7 +20,9 @@ public class Item {
         return this.productId.equals(productId);
     }
 
-    public int getPrice() { return price; }
+    public int price() {
+        return price;
+    }
 
     @Override
     public boolean equals(Object o) {
