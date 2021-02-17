@@ -38,5 +38,7 @@ public class Basket {
     public int totalItems() {
         return this.items.size();
     }
+
+    public Items getItems() { return this.items; }
 }
 
