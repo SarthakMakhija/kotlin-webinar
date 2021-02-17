@@ -10,10 +10,10 @@ public class Product {
     private final String barcode;
     private final Price price;
 
-    public Product(ProductId id, String barcode, int price) {
+    public Product(ProductId id, String barcode, Price price) {
         this.id = Objects.requireNonNull(id);
         this.barcode = Objects.requireNonNull(barcode);
-        this.price = new Price(price);
+        this.price = Objects.requireNonNull(price);
     }
 
     public ProductId id() {

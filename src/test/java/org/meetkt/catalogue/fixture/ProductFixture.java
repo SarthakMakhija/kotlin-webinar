@@ -2,12 +2,13 @@ package org.meetkt.catalogue.fixture;
 
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
+import org.meetkt.display.domain.model.Price;
 
 public class ProductFixture {
 
     private String barcode = "ZZZZZZZ";
     private ProductId productId;
-    private int price;
+    private Price price = Price.ZERO;
 
     private ProductFixture() {
     }
@@ -26,8 +27,13 @@ public class ProductFixture {
         return this;
     }
 
-    public ProductFixture withProductPrice(int price) {
-        this.price = price;
+    public ProductFixture withPriceInt(int price) {
+        this.price = new Price(price);
+        return this;
+    }
+
+    public ProductFixture withPriceDouble(double price) {
+        this.price = new Price(price);
         return this;
     }
 

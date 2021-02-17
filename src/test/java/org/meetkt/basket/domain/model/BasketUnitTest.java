@@ -92,10 +92,11 @@ class BasketUnitTest {
     @Test
     void shouldReturnTotalBasketPrice() {
         Basket basket = Basket.empty();
-        Product product = aProduct().withProductId("001").withProductPrice(12).build();
-        basket.add(product);
+        Product product = aProduct().withProductId("001").withPriceInt(12).build();
+        Product otherProduct = aProduct().withProductId("001").withPriceDouble(14.75).build();
+        basket.add(product, otherProduct);
 
         Price totalPrice = basket.totalPrice();
-        assertThat(totalPrice).isEqualTo(new Price(12));
+        assertThat(totalPrice).isEqualTo(new Price(26.75));
     }
 }

@@ -35,10 +35,11 @@ class ItemsUnitTest {
 
     @Test
     void shouldReturnTotalPrice() {
-        Product product = aProduct().withProductId("001").withProductPrice(100).build();
-        Items items = new Items(List.of(new Item(product)));
+        Product product = aProduct().withProductId("001").withPriceInt(100).build();
+        Product otherProduct = aProduct().withProductId("001").withPriceDouble(10.87).build();
+        Items items = new Items(List.of(new Item(product), new Item(otherProduct)));
 
         Price totalPrice = items.totalPrice();
-        assertThat(totalPrice).isEqualTo(new Price(100));
+        assertThat(totalPrice).isEqualTo(new Price(110.87));
     }
 }

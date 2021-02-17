@@ -28,11 +28,11 @@ class DisplayUnitTest {
     @Test
     void shouldReturnTotalPriceOfAllItemsInBasket() {
         Basket basket = Basket.empty();
-        basket.add(ProductFixture.aProduct().withProductId("001").withProductPrice(10).build());
-        basket.add(ProductFixture.aProduct().withProductId("002").withProductPrice(20).build());
+        basket.add(ProductFixture.aProduct().withProductId("001").withPriceInt(10).build());
+        basket.add(ProductFixture.aProduct().withProductId("002").withPriceDouble(20.78).build());
 
         Display display = new Display(basket);
 
-        assertThat(display.totalBasketPrice()).isEqualTo(new Price(30));
+        assertThat(display.totalBasketPrice()).isEqualTo(new Price(30.78));
     }
 }
