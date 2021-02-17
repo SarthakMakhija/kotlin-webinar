@@ -2,13 +2,14 @@ package org.meetkt.basket.domain.model;
 
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
+import org.meetkt.display.domain.model.Price;
 
 import java.util.Objects;
 
 public class Item {
 
     private final ProductId productId;
-    private final int price;
+    private final Price price;
 
     public Item(Product product) {
         this.productId = Objects.requireNonNull(product).id();
@@ -21,7 +22,7 @@ public class Item {
     }
 
     public int price() {
-        return price;
+        return price.value();
     }
 
     @Override

@@ -24,8 +24,8 @@ public class Product {
         return barcode;
     }
 
-    public int price() {
-        return price.value();
+    public Price price() {
+        return price;
     }
 
     @Override
