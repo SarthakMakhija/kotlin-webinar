@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class Items extends ArrayList<Item> {
 
-    Items(List<Item> items) {
+    public Items(List<Item> items) {
         super(items);
     }
 
