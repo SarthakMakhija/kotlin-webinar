@@ -2,4 +2,8 @@
 2. Product Fixture for tests ? - done
 3. Catalogue constructor - primitive obsession
 4. Should barcode be a string
-5.
+5. Check duplication in InvoicedItems
+6. Check duplication in Items and InvoicedItems
+7. See if we need to add tests for InvoicedItems
+8. Add an end to end client
+8. Add an end to end test
