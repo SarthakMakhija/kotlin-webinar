@@ -27,6 +27,10 @@ public class Item {
         return price;
     }
 
+    public ProductId productId() {
+        return productId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
