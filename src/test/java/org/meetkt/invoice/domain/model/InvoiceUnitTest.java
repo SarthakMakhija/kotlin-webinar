@@ -1,4 +1,4 @@
-package org.meetkt.bill.domain.model;
+package org.meetkt.invoice.domain.model;
 
 import org.junit.jupiter.api.Test;
 import org.meetkt.basket.domain.model.Basket;
@@ -8,7 +8,7 @@ import org.meetkt.display.domain.model.Price;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class BillUnitTest {
+class InvoiceUnitTest {
 
     @Test
     void shouldReturnTotalItems() {
@@ -16,8 +16,8 @@ class BillUnitTest {
         basket.add(ProductFixture.aProduct().withProductId("001").withPriceInt(10).build());
         basket.add(ProductFixture.aProduct().withProductId("002").withPriceDouble(20.78).build());
 
-        Bill bill = Bill.of(basket);
-        int totalItems = bill.totalItems();
+        Invoice invoice = Invoice.of(basket);
+        int totalItems = invoice.totalItems();
 
         assertThat(totalItems).isEqualTo(2);
     }
@@ -28,8 +28,8 @@ class BillUnitTest {
         basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
         basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
 
-        Bill bill = Bill.of(basket);
-        Price totalPrice = bill.totalPrice();
+        Invoice invoice = Invoice.of(basket);
+        Price totalPrice = invoice.totalPrice();
 
         assertThat(totalPrice).isEqualTo(new Price(41.56));
     }
@@ -40,8 +40,8 @@ class BillUnitTest {
         basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
         basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
 
-        Bill bill = Bill.of(basket);
-        int totalItems = bill.totalItemsFor(new ProductId("001"));
+        Invoice invoice = Invoice.of(basket);
+        int totalItems = invoice.totalItemsFor(new ProductId("001"));
 
         assertThat(totalItems).isEqualTo(2);
     }

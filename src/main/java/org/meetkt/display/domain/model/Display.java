@@ -2,7 +2,7 @@ package org.meetkt.display.domain.model;
 
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Items;
-import org.meetkt.bill.domain.model.Bill;
+import org.meetkt.invoice.domain.model.Invoice;
 
 import java.util.Objects;
 
@@ -22,7 +22,7 @@ public class Display {
         return basket.allItems();
     }
 
-    public Bill bill() {
-        return Bill.of(basket);
+    public Invoice invoice() {
+        return Invoice.of(basket);
     }
 }

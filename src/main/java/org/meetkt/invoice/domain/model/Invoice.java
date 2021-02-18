@@ -1,4 +1,4 @@
-package org.meetkt.bill.domain.model;
+package org.meetkt.invoice.domain.model;
 
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Item;
@@ -11,16 +11,16 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Bill {
+public class Invoice {
 
     private final InvoicedItems invoicedItems;
 
-    private Bill(Basket basket) {
+    private Invoice(Basket basket) {
         this.invoicedItems = new InvoicedItems(basket.allItems());
     }
 
-    public static Bill of(Basket basket) {
-        return new Bill(basket);
+    public static Invoice of(Basket basket) {
+        return new Invoice(basket);
     }
 
     public int totalItems() {

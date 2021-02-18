@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Item;
 import org.meetkt.basket.domain.model.Items;
-import org.meetkt.bill.domain.model.Bill;
+import org.meetkt.invoice.domain.model.Invoice;
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.fixture.ProductFixture;
 
@@ -38,13 +38,13 @@ class DisplayUnitTest {
     }
 
     @Test
-    void shouldDisplayBillWithOneItemForABasket() {
+    void shouldDisplayInvoiceWithOneItemForABasket() {
         Basket basket = Basket.empty();
         basket.add(ProductFixture.aProduct().withProductId("001").withPriceInt(10).build());
         Display display = new Display(basket);
 
-        Bill bill = display.bill();
+        Invoice invoice = display.invoice();
 
-        assertThat(bill.totalItems()).isEqualTo(1);
+        assertThat(invoice.totalItems()).isEqualTo(1);
     }
 }
