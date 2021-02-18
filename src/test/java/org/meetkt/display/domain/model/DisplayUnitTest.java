@@ -38,12 +38,13 @@ class DisplayUnitTest {
     }
 
     @Test
-    void shouldDisplayBillWithZeroTotalItemsForABasket() {
+    void shouldDisplayBillWithOneItemForABasket() {
         Basket basket = Basket.empty();
+        basket.add(ProductFixture.aProduct().withProductId("001").withPriceInt(10).build());
         Display display = new Display(basket);
 
         Bill bill = display.bill();
 
-        assertThat(bill.totalItems()).isEqualTo(0);
+        assertThat(bill.totalItems()).isEqualTo(1);
     }
 }

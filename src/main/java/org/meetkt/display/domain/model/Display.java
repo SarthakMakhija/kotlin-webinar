@@ -23,6 +23,6 @@ public class Display {
     }
 
     public Bill bill() {
-        return new Bill();
+        return Bill.of(basket);
     }
 }
