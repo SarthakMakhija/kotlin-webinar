@@ -2,6 +2,7 @@ package org.meetkt.display.domain.model;
 
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Items;
+import org.meetkt.bill.domain.model.Bill;
 
 import java.util.Objects;
 
@@ -19,5 +20,9 @@ public class Display {
 
     public Items allBasketItems() {
         return basket.allItems();
+    }
+
+    public Bill bill() {
+        return new Bill();
     }
 }

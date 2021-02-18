@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Item;
 import org.meetkt.basket.domain.model.Items;
+import org.meetkt.bill.domain.model.Bill;
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.fixture.ProductFixture;
 
@@ -34,5 +35,15 @@ class DisplayUnitTest {
         Display display = new Display(basket);
 
         assertThat(display.totalBasketPrice()).isEqualTo(new Price(30.78));
+    }
+
+    @Test
+    void shouldDisplayBillWithZeroTotalItemsForABasket() {
+        Basket basket = Basket.empty();
+        Display display = new Display(basket);
+
+        Bill bill = display.bill();
+
+        assertThat(bill.totalItems()).isEqualTo(0);
     }
 }
