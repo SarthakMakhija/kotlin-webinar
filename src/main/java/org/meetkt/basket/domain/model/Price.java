@@ -1,4 +1,4 @@
-package org.meetkt.display.domain.model;
+package org.meetkt.basket.domain.model;
 
 public class Price {
 

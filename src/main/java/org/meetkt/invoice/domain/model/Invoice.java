@@ -4,7 +4,7 @@ import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Item;
 import org.meetkt.basket.domain.model.Items;
 import org.meetkt.catalogue.domain.model.ProductId;
-import org.meetkt.display.domain.model.Price;
+import org.meetkt.basket.domain.model.Price;
 
 import java.util.ArrayList;
 import java.util.Collections;

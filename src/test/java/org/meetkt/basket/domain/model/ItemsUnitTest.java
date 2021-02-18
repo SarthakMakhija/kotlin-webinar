@@ -3,7 +3,6 @@ package org.meetkt.basket.domain.model;
 import org.junit.jupiter.api.Test;
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
-import org.meetkt.display.domain.model.Price;
 
 import java.util.List;
 import java.util.Optional;

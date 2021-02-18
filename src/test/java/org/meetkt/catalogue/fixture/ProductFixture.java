@@ -2,7 +2,7 @@ package org.meetkt.catalogue.fixture;
 
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
-import org.meetkt.display.domain.model.Price;
+import org.meetkt.basket.domain.model.Price;
 
 public class ProductFixture {
 

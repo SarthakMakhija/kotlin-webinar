@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Item;
 import org.meetkt.basket.domain.model.Items;
+import org.meetkt.basket.domain.model.Price;
 import org.meetkt.invoice.domain.model.Invoice;
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.fixture.ProductFixture;

@@ -1,7 +1,6 @@
 package org.meetkt.basket.domain.model;
 
 import org.meetkt.catalogue.domain.model.ProductId;
-import org.meetkt.display.domain.model.Price;
 
 import java.util.ArrayList;
 import java.util.List;

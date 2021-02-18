@@ -1,6 +1,6 @@
 package org.meetkt.catalogue.domain.model;
 
-import org.meetkt.display.domain.model.Price;
+import org.meetkt.basket.domain.model.Price;
 
 import java.util.Objects;
 

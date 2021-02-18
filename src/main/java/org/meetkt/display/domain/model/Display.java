@@ -2,6 +2,7 @@ package org.meetkt.display.domain.model;
 
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.basket.domain.model.Items;
+import org.meetkt.basket.domain.model.Price;
 import org.meetkt.invoice.domain.model.Invoice;
 
 import java.util.Objects;
