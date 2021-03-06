@@ -40,4 +40,14 @@ class ItemsUnitTest {
         val totalPrice = items.totalPrice()
         assertThat(totalPrice).isEqualTo(Price(110.87))
     }
+
+    @Test
+    fun shouldReturnTrueGiven2ItemsAreEqual() {
+        val product = ProductFixture.aProduct().withProductId("001").withPriceDouble(12.21).build()
+        val otherProduct = ProductFixture.aProduct().withProductId("001").withPriceDouble(12.21).build()
+        val items = mutableListOf(Item(product))
+        val otherItems = mutableListOf(Item(otherProduct))
+
+        assertThat(items).isEqualTo(otherItems)
+    }
 }
