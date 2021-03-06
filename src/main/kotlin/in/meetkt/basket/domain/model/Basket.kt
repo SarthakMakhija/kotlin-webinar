@@ -30,4 +30,7 @@ class Basket {
     fun totalItems(): Int = items.size
 
     fun totalPrice(): Price = items.totalPrice()
+
+    //TODO: Check why does the display unit test fail when we return new Items
+    fun allItems() = items
 }
