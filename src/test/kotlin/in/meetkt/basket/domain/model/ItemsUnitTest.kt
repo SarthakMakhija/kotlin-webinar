@@ -10,7 +10,7 @@ class ItemsUnitTest {
     @Test
     fun shouldReturnAnEmptyItemGivenProductDoesNotExistInItems() {
         val product = ProductFixture.aProduct().withProductId("001").build()
-        val items = Items(listOf(Item(product)))
+        val items = Items(mutableListOf(Item(product)))
         val item = items.findFirst(ProductId("non-existing"))
 
         assertThat(item).isNull()
@@ -19,7 +19,7 @@ class ItemsUnitTest {
     @Test
     fun shouldReturnAnItem() {
         val product = ProductFixture.aProduct().withProductId("001").build()
-        val items = Items(listOf(Item(product)))
+        val items = Items(mutableListOf(Item(product)))
         val item = items.findFirst(ProductId("001"))
 
         assertThat(item).isEqualTo(Item(product))
@@ -32,7 +32,7 @@ class ItemsUnitTest {
         val otherProduct =
             ProductFixture.aProduct().withProductId("001").withPriceDouble(10.87).build()
         val items = Items(
-            listOf(
+            mutableListOf(
                 Item(product),
                 Item(otherProduct)
             )
