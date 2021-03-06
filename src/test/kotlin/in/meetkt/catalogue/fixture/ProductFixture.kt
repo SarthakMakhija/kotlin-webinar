@@ -18,6 +18,8 @@ class ProductFixture private constructor() {
 
     fun withProductId(id: String): ProductFixture = this.also { it.productId = ProductId(id) }
 
+    fun withBarcode(barcode: String): ProductFixture = this.also { it.barcode = barcode }
+
     fun withPriceInt(price: Int) = withPriceDouble(price.toDouble())
 
     fun withPriceDouble(price: Double) = this.also { it.price = Price(price) }
