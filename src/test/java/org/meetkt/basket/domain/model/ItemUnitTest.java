@@ -7,7 +7,7 @@ import org.meetkt.catalogue.domain.model.ProductId;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.meetkt.catalogue.fixture.ProductFixture.aProduct;
 
-class BasketItemUnitTest {
+class ItemUnitTest {
 
     @Test
     void shouldReturnTrueGivenItemIsOfAGivenProduct() {
