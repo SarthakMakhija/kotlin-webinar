@@ -24,4 +24,8 @@ class Item(product: Product) {
     override fun hashCode(): Int {
         return productId.hashCode()
     }
+
+    override fun toString(): String {
+        return "Item(productId=$productId, price=$price)"
+    }
 }
