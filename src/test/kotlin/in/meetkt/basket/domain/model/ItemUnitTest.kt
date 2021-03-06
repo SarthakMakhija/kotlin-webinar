@@ -26,4 +26,13 @@ class ItemUnitTest {
 
         assertThat(containsProduct).isFalse
     }
+
+    @Test
+    fun shouldReturnTrueGiven2ItemAreEqual() {
+        val product = ProductFixture.aProduct().withProductId("001").withPriceDouble(12.21).build()
+        val item = Item(product)
+        val otherItem = Item(product)
+
+        assertThat(item).isEqualTo(otherItem)
+    }
 }
