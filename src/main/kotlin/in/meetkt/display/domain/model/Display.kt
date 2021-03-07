@@ -3,6 +3,7 @@ package `in`.meetkt.display.domain.model
 import `in`.meetkt.basket.domain.model.Basket
 import `in`.meetkt.basket.domain.model.Items
 import `in`.meetkt.basket.domain.model.Price
+import `in`.meetkt.invoice.domain.model.Invoice
 
 class Display(private val basket: Basket) {
 
@@ -10,8 +11,5 @@ class Display(private val basket: Basket) {
 
     fun allBasketItems(): Items = basket.allItems()
 
-    //TODO: Implement this
-    // public Invoice invoice() {
-    //        return Invoice.of(basket);
-    //    }
+    fun invoice(): Invoice = Invoice.`for`(basket)
 }

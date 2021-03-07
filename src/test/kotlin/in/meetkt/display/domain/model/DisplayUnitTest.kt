@@ -32,4 +32,15 @@ class DisplayUnitTest {
 
         assertThat(display.totalBasketPrice()).isEqualTo(Price(30.78))
     }
+
+    @Test
+    fun shouldDisplayInvoiceWithOneItemForABasket() {
+        val basket = Basket.empty()
+        basket.add(ProductFixture.aProduct().withProductId("001").withPriceInt(10).build())
+        val display = Display(basket)
+
+        val invoice = display.invoice()
+
+        assertThat(invoice.totalItems()).isEqualTo(1)
+    }
 }
