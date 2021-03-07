@@ -2,25 +2,24 @@ package `in`.meetkt.catalogue
 
 import `in`.meetkt.catalogue.domain.model.Catalogue
 import `in`.meetkt.catalogue.domain.model.ProductId
-import `in`.meetkt.catalogue.exception.NoProductFoundForBarcodeException
 import `in`.meetkt.catalogue.fixture.ProductFixture
 import io.mockk.every
 import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 
 class BarcodeScannerUnitTest {
 
     @Test
-    fun shouldThrowAnExceptionGivenProductDoesNotExistForTheBarcode() {
+    fun shouldReturnAnExceptionGivenProductDoesNotExistForTheBarcode() {
         val barcode = "no-product-found-for-this-barcode"
         val catalogue = mockk<Catalogue>()
         every { catalogue.productWith(barcode) } returns null
-
         val barcodeScanner = BarcodeScanner(catalogue)
 
-        assertThrows(NoProductFoundForBarcodeException::class.java) { barcodeScanner.scanOrThrow(barcode) }
+        val product = barcodeScanner.scanOrThrow(barcode)
+
+        assertThat(product.isLeft()).isTrue
     }
 
     @Test
@@ -33,6 +32,6 @@ class BarcodeScannerUnitTest {
 
         val product = barcodeScanner.scanOrThrow(barcode)
 
-        assertThat(product.id).isEqualTo(ProductId("001"))
+        assertThat(product.orNull()?.id).isEqualTo(ProductId("001"))
     }
 }
