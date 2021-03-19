@@ -33,9 +33,9 @@ class BarcodeScannerUnitTest {
         String barcode = "product-001-barcode";
         Catalogue catalogue = mock(Catalogue.class);
         BarcodeScanner barcodeScanner = new BarcodeScanner(catalogue);
-        when(catalogue.productWith(barcode)).thenReturn(Optional.of(aProduct().withProductId("001").withBarcode(barcode).build()));
+        when(catalogue.productWith(barcode)).thenReturn(Optional.of(aProduct().withProductId("P-001").withBarcode(barcode).build()));
 
         Product product = barcodeScanner.scanOrThrow(barcode);
-        assertThat(product.id()).isEqualTo(new ProductId("001"));
+        assertThat(product.id()).isEqualTo(new ProductId("P-001"));
     }
 }

@@ -13,7 +13,7 @@ class BasketUnitTest {
 
     @Test
     void shouldAddAProductInBasket() {
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         Basket basket = Basket.empty();
 
         basket.add(product);
@@ -26,8 +26,8 @@ class BasketUnitTest {
         Basket basket = Basket.empty();
 
         basket.add(
-                aProduct().withProductId("001").build(),
-                aProduct().withProductId("001").build()
+                aProduct().withProductId("P-001").build(),
+                aProduct().withProductId("P-001").build()
         );
 
         assertThat(basket.totalItems()).isEqualTo(2);
@@ -38,8 +38,8 @@ class BasketUnitTest {
         Basket basket = Basket.empty();
 
         basket.add(
-                aProduct().withProductId("001").build(),
-                aProduct().withProductId("002").build()
+                aProduct().withProductId("P-001").build(),
+                aProduct().withProductId("P-002").build()
         );
 
         assertThat(basket.totalItems()).isEqualTo(2);
@@ -47,19 +47,19 @@ class BasketUnitTest {
 
     @Test
     void shouldDeleteAllProductsMatchingProductId() {
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         Basket basket = Basket.empty();
         basket.add(product);
         basket.add(product);
 
-        basket.deleteAllProductsMatching(new ProductId("001"));
+        basket.deleteAllProductsMatching(new ProductId("P-001"));
 
         assertThat(basket.totalItems()).isEqualTo(0);
     }
 
     @Test
     void shouldReturnTotalItemsInBasket() {
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         Basket basket = Basket.empty();
         basket.add(product);
 
@@ -72,7 +72,7 @@ class BasketUnitTest {
     void shouldReturnAnEmptyItemGivenProductDoesNotExistInBasket() {
         Basket basket = Basket.empty();
 
-        Optional<Item> item = basket.findBy(new ProductId("001"));
+        Optional<Item> item = basket.findBy(new ProductId("P-001"));
 
         assertThat(item).isEmpty();
     }
@@ -80,10 +80,10 @@ class BasketUnitTest {
     @Test
     void shouldReturnAnItemFromBasket() {
         Basket basket = Basket.empty();
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         basket.add(product);
 
-        Optional<Item> item = basket.findBy(new ProductId("001"));
+        Optional<Item> item = basket.findBy(new ProductId("P-001"));
 
         assertThat(item.get()).isEqualTo(new Item(product));
     }
@@ -91,8 +91,8 @@ class BasketUnitTest {
     @Test
     void shouldReturnTotalBasketPrice() {
         Basket basket = Basket.empty();
-        Product product = aProduct().withProductId("001").withPriceInt(12).build();
-        Product otherProduct = aProduct().withProductId("001").withPriceDouble(14.75).build();
+        Product product = aProduct().withProductId("P-001").withPriceInt(12).build();
+        Product otherProduct = aProduct().withProductId("P-001").withPriceDouble(14.75).build();
         basket.add(product, otherProduct);
 
         Price totalPrice = basket.totalPrice();

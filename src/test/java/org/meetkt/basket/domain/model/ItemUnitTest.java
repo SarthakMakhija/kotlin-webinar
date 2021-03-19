@@ -11,20 +11,20 @@ class ItemUnitTest {
 
     @Test
     void shouldReturnTrueGivenItemIsOfAGivenProduct() {
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         Item item = new Item(product);
 
-        boolean containsProduct = item.contains(new ProductId("001"));
+        boolean containsProduct = item.contains(new ProductId("P-001"));
 
         assertThat(containsProduct).isTrue();
     }
 
     @Test
     void shouldReturnFalseGivenItemIsNotOfGivenProduct() {
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         Item item = new Item(product);
 
-        boolean containsProduct = item.contains(new ProductId("002"));
+        boolean containsProduct = item.contains(new ProductId("P-002"));
 
         assertThat(containsProduct).isFalse();
     }

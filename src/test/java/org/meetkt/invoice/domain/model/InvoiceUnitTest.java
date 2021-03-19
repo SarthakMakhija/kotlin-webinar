@@ -13,8 +13,8 @@ class InvoiceUnitTest {
     @Test
     void shouldReturnTotalItems() {
         Basket basket = Basket.empty();
-        basket.add(ProductFixture.aProduct().withProductId("001").withPriceInt(10).build());
-        basket.add(ProductFixture.aProduct().withProductId("002").withPriceDouble(20.78).build());
+        basket.add(ProductFixture.aProduct().withProductId("P-001").withPriceInt(10).build());
+        basket.add(ProductFixture.aProduct().withProductId("P-002").withPriceDouble(20.78).build());
 
         Invoice invoice = Invoice.of(basket);
         int totalItems = invoice.totalItems();
@@ -25,8 +25,8 @@ class InvoiceUnitTest {
     @Test
     void shouldReturnTotalPrice() {
         Basket basket = Basket.empty();
-        basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
-        basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
+        basket.add(ProductFixture.aProduct().withProductId("P-001").withPriceDouble(20.78).build());
+        basket.add(ProductFixture.aProduct().withProductId("P-001").withPriceDouble(20.78).build());
 
         Invoice invoice = Invoice.of(basket);
         Price totalPrice = invoice.totalPrice();
@@ -37,11 +37,11 @@ class InvoiceUnitTest {
     @Test
     void shouldReturnTotalItemsForAProductId() {
         Basket basket = Basket.empty();
-        basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
-        basket.add(ProductFixture.aProduct().withProductId("001").withPriceDouble(20.78).build());
+        basket.add(ProductFixture.aProduct().withProductId("P-001").withPriceDouble(20.78).build());
+        basket.add(ProductFixture.aProduct().withProductId("P-001").withPriceDouble(20.78).build());
 
         Invoice invoice = Invoice.of(basket);
-        int totalItems = invoice.totalItemsFor(new ProductId("001"));
+        int totalItems = invoice.totalItemsFor(new ProductId("P-001"));
 
         assertThat(totalItems).isEqualTo(2);
     }

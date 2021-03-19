@@ -29,7 +29,7 @@ class CatalogueUnitTest {
 
     @Test
     void shouldNoReturnAProductGivenProductDoesNotExistForTheBarcode() {
-        Catalogue catalogue = new Catalogue(List.of(aProduct().withProductId("001").withBarcode("barcode-001").build()));
+        Catalogue catalogue = new Catalogue(List.of(aProduct().withProductId("P-001").withBarcode("barcode-001").build()));
         Optional<Product> product = catalogue.productWith("non-existent-product-for-barcode");
 
         assertThat(product.isEmpty()).isTrue();
@@ -37,9 +37,9 @@ class CatalogueUnitTest {
 
     @Test
     void shouldReturnAProductWithProductIdGivenABarcode() {
-        Catalogue catalogue = new Catalogue(List.of(aProduct().withProductId("001").withBarcode("barcode-001").build()));
+        Catalogue catalogue = new Catalogue(List.of(aProduct().withProductId("P-001").withBarcode("barcode-001").build()));
         Optional<Product> product = catalogue.productWith("barcode-001");
 
-        assertThat(product.get().id()).isEqualTo(new ProductId("001"));
+        assertThat(product.get().id()).isEqualTo(new ProductId("P-001"));
     }
 }

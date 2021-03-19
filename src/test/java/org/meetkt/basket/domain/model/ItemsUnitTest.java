@@ -14,7 +14,7 @@ class ItemsUnitTest {
 
     @Test
     void shouldReturnAnEmptyItemGivenProductDoesNotExistInItems() {
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         Items items = new Items(List.of(new Item(product)));
 
         Optional<Item> item = items.findFirst(new ProductId("non-existing"));
@@ -24,18 +24,18 @@ class ItemsUnitTest {
 
     @Test
     void shouldReturnAnItem() {
-        Product product = aProduct().withProductId("001").build();
+        Product product = aProduct().withProductId("P-001").build();
         Items items = new Items(List.of(new Item(product)));
 
-        Optional<Item> item = items.findFirst(new ProductId("001"));
+        Optional<Item> item = items.findFirst(new ProductId("P-001"));
 
         assertThat(item.get()).isEqualTo(new Item(product));
     }
 
     @Test
     void shouldReturnTotalPrice() {
-        Product product = aProduct().withProductId("001").withPriceInt(100).build();
-        Product otherProduct = aProduct().withProductId("001").withPriceDouble(10.87).build();
+        Product product = aProduct().withProductId("P-001").withPriceInt(100).build();
+        Product otherProduct = aProduct().withProductId("P-001").withPriceDouble(10.87).build();
         Items items = new Items(List.of(new Item(product), new Item(otherProduct)));
 
         Price totalPrice = items.totalPrice();
