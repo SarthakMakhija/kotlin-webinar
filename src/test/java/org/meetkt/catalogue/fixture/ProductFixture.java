@@ -9,6 +9,7 @@ public class ProductFixture {
     private String barcode = "ZZZZZZZ";
     private ProductId productId;
     private Price price = Price.ZERO;
+    private String description = "Default description";
 
     private ProductFixture() {
     }
@@ -37,7 +38,12 @@ public class ProductFixture {
         return this;
     }
 
+    public ProductFixture withDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
     public Product build() {
-        return new Product(productId, barcode, price);
+        return new Product(productId, barcode, price, description);
     }
 }

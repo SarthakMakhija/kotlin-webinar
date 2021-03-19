@@ -5,15 +5,16 @@ import org.meetkt.basket.domain.model.Price;
 import java.util.Objects;
 
 public class Product {
-
     private final ProductId id;
     private final String barcode;
     private final Price price;
+    private final String description;
 
-    public Product(ProductId id, String barcode, Price price) {
+    public Product(ProductId id, String barcode, Price price, String description) {
         this.id = Objects.requireNonNull(id);
         this.barcode = Objects.requireNonNull(barcode);
         this.price = Objects.requireNonNull(price);
+        this.description = description;
     }
 
     public ProductId id() {
@@ -26,6 +27,13 @@ public class Product {
 
     public Price price() {
         return price;
+    }
+
+    public String description() {
+        if (Objects.isNull(description)) {
+            return "";
+        }
+        return description.toLowerCase();
     }
 
     @Override
