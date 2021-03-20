@@ -12,24 +12,20 @@ import static org.meetkt.catalogue.fixture.ProductFixture.aProduct;
 class CatalogueUnitTest {
 
     @Test
-    void shouldNoReturnAProductGivenCatalogueIsEmpty() {
+    void shouldNotReturnAProductGivenCatalogueIsEmpty() {
         Catalogue catalogue = new Catalogue(Collections.emptyList());
+
         Optional<Product> product = catalogue.productWith("any-barcode");
 
         assertThat(product.isEmpty()).isTrue();
     }
 
     @Test
-    void shouldNoReturnAProductGivenBarcodeIsNull() {
-        Catalogue catalogue = new Catalogue(Collections.emptyList());
-        Optional<Product> product = catalogue.productWith(null);
+    void shouldNotReturnAProductGivenProductDoesNotExistForTheBarcode() {
+        Catalogue catalogue = new Catalogue(
+                List.of(aProduct().withProductId("P-001").withBarcode("barcode-001").build())
+        );
 
-        assertThat(product.isEmpty()).isTrue();
-    }
-
-    @Test
-    void shouldNoReturnAProductGivenProductDoesNotExistForTheBarcode() {
-        Catalogue catalogue = new Catalogue(List.of(aProduct().withProductId("P-001").withBarcode("barcode-001").build()));
         Optional<Product> product = catalogue.productWith("non-existent-product-for-barcode");
 
         assertThat(product.isEmpty()).isTrue();
@@ -37,7 +33,10 @@ class CatalogueUnitTest {
 
     @Test
     void shouldReturnAProductWithProductIdGivenABarcode() {
-        Catalogue catalogue = new Catalogue(List.of(aProduct().withProductId("P-001").withBarcode("barcode-001").build()));
+        Catalogue catalogue = new Catalogue(
+                List.of(aProduct().withProductId("P-001").withBarcode("barcode-001").build())
+        );
+
         Optional<Product> product = catalogue.productWith("barcode-001");
 
         assertThat(product.get().id()).isEqualTo(new ProductId("P-001"));

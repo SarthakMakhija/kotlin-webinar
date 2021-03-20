@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.31'
 }
 
 group 'org.meetkt'
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation      'org.jetbrains.kotlin:kotlin-stdlib'
+    implementation      'org.jetbrains.kotlin:kotlin-stdlib:1.4.31'
     testImplementation  'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testImplementation  'io.mockk:mockk:1.10.0'
     testRuntimeOnly     'org.junit.jupiter:junit-jupiter-engine'
@@ -23,4 +23,30 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+
+compileKotlin {
+    kotlinOptions {
+        languageVersion = "1.5"
+        apiVersion = "1.5"
+        jvmTarget = JavaVersion.VERSION_15
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        languageVersion = "1.5"
+        apiVersion = "1.5"
+        jvmTarget = JavaVersion.VERSION_15
+    }
+}
+
+kotlin {
+    sourceSets.all {
+        languageSettings.enableLanguageFeature('InlineClasses')
+    }
 }
