@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.meetkt.basket.domain.model.Basket;
 import org.meetkt.catalogue.domain.model.ProductId;
 import org.meetkt.catalogue.fixture.ProductFixture;
-import org.meetkt.basket.domain.model.Price;
+import org.meetkt.catalogue.domain.model.Price;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

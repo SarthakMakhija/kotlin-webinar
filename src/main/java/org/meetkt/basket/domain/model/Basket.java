@@ -1,5 +1,6 @@
 package org.meetkt.basket.domain.model;
 
+import org.meetkt.catalogue.domain.model.Price;
 import org.meetkt.catalogue.domain.model.Product;
 import org.meetkt.catalogue.domain.model.ProductId;
 

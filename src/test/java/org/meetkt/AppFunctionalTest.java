@@ -2,7 +2,7 @@ package org.meetkt;
 
 import org.junit.jupiter.api.Test;
 import org.meetkt.basket.domain.model.Basket;
-import org.meetkt.basket.domain.model.Price;
+import org.meetkt.catalogue.domain.model.Price;
 import org.meetkt.catalogue.BarcodeScanner;
 import org.meetkt.catalogue.domain.model.Catalogue;
 import org.meetkt.invoice.domain.model.Invoice;
